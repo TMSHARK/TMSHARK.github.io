@@ -10,7 +10,7 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -73,6 +73,11 @@
         .testimonial-card:hover {
             transform: translateY(-8px);
         }
+
+        #map {
+            height: 420px;
+            border-radius: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-emerald-50 text-emerald-950">
@@ -93,6 +98,7 @@
                     <a href="#cursos" class="nav-link text-emerald-700 hover:text-emerald-800">Cursos</a>
                     <a href="#asesorias" class="nav-link text-emerald-700 hover:text-emerald-800">Asesorías</a>
                     <a href="#testimonios" class="nav-link text-emerald-700 hover:text-emerald-800">Opiniones</a>
+                    <a href="#ubicacion" class="nav-link text-emerald-700 hover:text-emerald-800">Ubicación</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -113,11 +119,12 @@
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
             <div class="flex flex-col px-6 py-6 space-y-4 text-lg">
                 <a href="#inicio" class="py-2">Inicio</a>
-                <a href="#productos" class="py-2">Productos Físicos</a>
-                <a href="#digitales" class="py-2">Productos Digitales</a>
+                <a href="#productos" class="py-2">Productos</a>
+                <a href="#digitales" class="py-2">Digitales</a>
                 <a href="#cursos" class="py-2">Cursos</a>
-                <a href="#asesorias" class="py-2">Asesorías Privadas</a>
+                <a href="#asesorias" class="py-2">Asesorías</a>
                 <a href="#testimonios" class="py-2">Opiniones</a>
+                <a href="#ubicacion" class="py-2">Ubicación</a>
             </div>
         </div>
     </nav>
@@ -226,28 +233,28 @@
             </div>
 
             <div class="grid md:grid-cols-4 gap-6">
-                <div onclick="contactWhatsApp('Quiero comprar el PDF: Guía de Nutrición Vegetal Avanzada')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                <div onclick="contactWhatsApp('Quiero comprar el PDF: Guía de Nutrición Vegetal Avanzada')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
                     <div class="text-5xl mb-6">📘</div>
                     <h4 class="font-semibold text-xl">Guía de Nutrición Vegetal Avanzada</h4>
                     <p class="text-emerald-300 text-sm mt-2">150 páginas • PDF interactivo</p>
                     <div class="mt-8 text-3xl font-bold">$4.900</div>
                 </div>
 
-                <div onclick="contactWhatsApp('Quiero comprar el eBook: Manejo de Suelos en Secano')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                <div onclick="contactWhatsApp('Quiero comprar el eBook: Manejo de Suelos en Secano')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
                     <div class="text-5xl mb-6">🌱</div>
                     <h4 class="font-semibold text-xl">Manejo de Suelos en Secano</h4>
                     <p class="text-emerald-300 text-sm mt-2">eBook + plantillas Excel</p>
                     <div class="mt-8 text-3xl font-bold">$6.200</div>
                 </div>
 
-                <div onclick="contactWhatsApp('Quiero comprar el Pack: Modelos de Rotación de Cultivos')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                <div onclick="contactWhatsApp('Quiero comprar el Pack: Modelos de Rotación de Cultivos')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
                     <div class="text-5xl mb-6">📊</div>
                     <h4 class="font-semibold text-xl">Pack Modelos de Rotación</h4>
                     <p class="text-emerald-300 text-sm mt-2">10 modelos + calculadoras</p>
                     <div class="mt-8 text-3xl font-bold">$9.800</div>
                 </div>
 
-                <div onclick="contactWhatsApp('Quiero comprar el Curso grabado: Detección temprana de plagas')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                <div onclick="contactWhatsApp('Quiero comprar el Curso grabado: Detección temprana de plagas')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
                     <div class="text-5xl mb-6">🎥</div>
                     <h4 class="font-semibold text-xl">Detección temprana de plagas</h4>
                     <p class="text-emerald-300 text-sm mt-2">Video curso + certificación</p>
@@ -309,7 +316,7 @@
 
                 <div class="testimonial-card bg-white border border-emerald-100 rounded-3xl p-8">
                     <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-emerald-700 italic">"La asesoría privada salvó mi temporada. Muy profesionales y resultados visibles."</p>
+                    <p class="text-emerald-700 italic">"La asesoría privada salvó mi temporada. Muy profesionales."</p>
                     <div class="mt-8 flex items-center gap-4">
                         <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">👨‍🌾</div>
                         <div>
@@ -329,6 +336,50 @@
                             <p class="text-sm text-emerald-600">Guanajuato</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación con Mapa -->
+    <section id="ubicacion" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">VISÍTANOS</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Nuestra Ubicación</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-emerald-50 rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold mb-6">Información de Contacto</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <i class="fas fa-map-marker-alt text-2xl text-emerald-700 mt-1"></i>
+                            <div>
+                                <p class="font-medium">Dirección</p>
+                                <p class="text-emerald-600">Av. Tecnológico 123, Col. Industrial, Toluca, Edo. Méx.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fas fa-phone text-2xl text-emerald-700 mt-1"></i>
+                            <div>
+                                <p class="font-medium">Teléfono</p>
+                                <p class="text-emerald-600">+52 722 225 6180</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fas fa-clock text-2xl text-emerald-700 mt-1"></i>
+                            <div>
+                                <p class="font-medium">Horario</p>
+                                <p class="text-emerald-600">Lunes a Viernes: 8:00 - 18:00 hrs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.5!2d-99.655!3d19.292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20b5f5f5f5f5f%3A0x1234567890abcdef!2sToluca%2C%20Estado%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1720000000000" 
+                            width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
