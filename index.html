@@ -21,7 +21,6 @@
         
         :root {
             --green: #166534;
-            --earth: #78350f;
         }
         
         body {
@@ -70,11 +69,13 @@
             width: 100%;
         }
 
-        .sensor-card {
-            transition: all 0.3s ease;
-        }
-        .sensor-card:hover {
+        .testimonial-card:hover, .sensor-card:hover {
             transform: translateY(-8px);
+        }
+
+        #map {
+            height: 420px;
+            border-radius: 1.5rem;
         }
     </style>
 </head>
@@ -166,9 +167,182 @@
         </div>
     </section>
 
-    <!-- Productos Físicos, Digitales, Cursos, Asesorías, Testimonios (se mantienen) -->
+    <!-- Productos Físicos -->
+    <section id="productos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">TIENDA FÍSICA</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Productos para tu campo</h2>
+                <p class="mt-4 text-lg text-emerald-700 max-w-md mx-auto">Insumos de alta calidad seleccionados por agrónomos expertos</p>
+            </div>
 
-    <!-- === NUEVA SECCIÓN: SENSORES IOT DE TEMPERATURA Y CLIMA === -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-emerald-100 flex items-center justify-center text-8xl">🧪</div>
+                    <div class="p-8">
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Fertilizantes</span>
+                        <h3 class="text-2xl font-semibold mt-4">Bioestimulante NeuroRoot</h3>
+                        <p class="text-emerald-600 mt-2">Mejora el sistema radicular y absorción de nutrientes</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div><span class="text-3xl font-bold">$4.800</span><span class="text-sm text-emerald-600">/litro</span></div>
+                            <button onclick="contactWhatsApp('Quiero comprar Bioestimulante NeuroRoot')" class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-amber-100 flex items-center justify-center text-8xl">🌾</div>
+                    <div class="p-8">
+                        <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Semillas</span>
+                        <h3 class="text-2xl font-semibold mt-4">Trigo Elite NeuroGen</h3>
+                        <p class="text-emerald-600 mt-2">Alta productividad y resistencia a estrés hídrico</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div><span class="text-3xl font-bold">$125.000</span><span class="text-sm text-emerald-600">/bolsa 25kg</span></div>
+                            <button onclick="contactWhatsApp('Quiero información del Trigo Elite NeuroGen')" class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-sky-100 flex items-center justify-center text-8xl">🛡️</div>
+                    <div class="p-8">
+                        <span class="text-xs bg-sky-100 text-sky-700 px-3 py-1 rounded-full">Fitosanitarios</span>
+                        <h3 class="text-2xl font-semibold mt-4">Fungicida Orgánico NeuroShield</h3>
+                        <p class="text-emerald-600 mt-2">Protección biológica contra hongos patógenos</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div><span class="text-3xl font-bold">$8.900</span><span class="text-sm text-emerald-600">/litro</span></div>
+                            <button onclick="contactWhatsApp('Quiero comprar NeuroShield')" class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Digitales -->
+    <section id="digitales" class="py-24 bg-emerald-950 text-white leaf-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-400 font-semibold">BIBLIOTECA DIGITAL</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Recursos digitales</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div onclick="contactWhatsApp('Quiero comprar el PDF: Guía de Nutrición Vegetal Avanzada')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                    <div class="text-5xl mb-6">📘</div>
+                    <h4 class="font-semibold text-xl">Guía de Nutrición Vegetal Avanzada</h4>
+                    <p class="text-emerald-300 text-sm mt-2">150 páginas • PDF interactivo</p>
+                    <div class="mt-8 text-3xl font-bold">$4.900</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el eBook: Manejo de Suelos en Secano')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                    <div class="text-5xl mb-6">🌱</div>
+                    <h4 class="font-semibold text-xl">Manejo de Suelos en Secano</h4>
+                    <p class="text-emerald-300 text-sm mt-2">eBook + plantillas Excel</p>
+                    <div class="mt-8 text-3xl font-bold">$6.200</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el Pack: Modelos de Rotación de Cultivos')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                    <div class="text-5xl mb-6">📊</div>
+                    <h4 class="font-semibold text-xl">Pack Modelos de Rotación</h4>
+                    <p class="text-emerald-300 text-sm mt-2">10 modelos + calculadoras</p>
+                    <div class="mt-8 text-3xl font-bold">$9.800</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el Curso grabado: Detección temprana de plagas')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
+                    <div class="text-5xl mb-6">🎥</div>
+                    <h4 class="font-semibold text-xl">Detección temprana de plagas</h4>
+                    <p class="text-emerald-300 text-sm mt-2">Video curso + certificación</p>
+                    <div class="mt-8 text-3xl font-bold">$12.500</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos -->
+    <section id="cursos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="heading-font text-5xl font-bold leading-tight">Formación profesional en agronomía</h2>
+                    <p class="mt-6 text-lg text-emerald-700">Cursos online y presenciales con los mejores especialistas del país.</p>
+                    <button onclick="contactWhatsApp('Quiero inscribirme en el curso Manejo Integral de Cultivos Extensivos')" class="mt-10 bg-emerald-700 text-white px-8 py-4 rounded-3xl font-semibold text-lg">Ver cursos disponibles</button>
+                </div>
+                <div class="bg-emerald-50 rounded-3xl p-12 text-center">
+                    <div class="text-7xl mb-6">🎓</div>
+                    <p class="text-2xl font-semibold">Próximo inicio: 15 de Julio 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asesorías -->
+    <section id="asesorias" class="py-24 bg-emerald-800 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="bg-white/20 text-white px-5 py-2 rounded-full text-sm">EXCLUSIVO</span>
+            <h2 class="heading-font text-5xl font-bold mt-6">Asesorías personalizadas</h2>
+            <p class="text-emerald-100 mt-6 text-xl">Diagnóstico completo de tu establecimiento + plan de acción personalizado</p>
+            <button onclick="contactWhatsApp('Quiero agendar una asesoría privada con NeuroPlant')" class="mt-12 w-full bg-white text-emerald-800 py-6 text-xl font-semibold rounded-3xl hover:bg-emerald-100 transition-all">
+                Reservar mi asesoría privada
+            </button>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">LO QUE DICEN NUESTROS CLIENTES</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Opiniones reales</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white border border-emerald-100 rounded-3xl p-8">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★☆</div>
+                    <p class="text-emerald-700 italic">"El Bioestimulante NeuroRoot aumentó la raíz de mis jitomates en un 40%. Excelente producto."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-2xl">🌱</div>
+                        <div>
+                            <p class="font-semibold">Ing. Juan Ramírez</p>
+                            <p class="text-sm text-emerald-600">Jalisco</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card bg-white border border-emerald-100 rounded-3xl p-8">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-emerald-700 italic">"La asesoría privada salvó mi temporada. Muy profesionales."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">👨‍🌾</div>
+                        <div>
+                            <p class="font-semibold">María López</p>
+                            <p class="text-sm text-emerald-600">Michoacán</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card bg-white border border-emerald-100 rounded-3xl p-8">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★☆</div>
+                    <p class="text-emerald-700 italic">"Los cursos son muy prácticos. Ya estoy aplicando todo lo aprendido."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-2xl">📚</div>
+                        <div>
+                            <p class="font-semibold">Carlos Mendoza</p>
+                            <p class="text-sm text-emerald-600">Guanajuato</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sensores IoT -->
     <section id="sensores" class="py-24 bg-emerald-950 text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -178,48 +352,31 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Sensor 1 -->
                 <div class="sensor-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-6">🌡️</div>
                     <h3 class="text-2xl font-semibold mb-2">Temperatura del Suelo</h3>
                     <div class="text-5xl font-bold text-emerald-400 mb-2">24.8°C</div>
                     <p class="text-emerald-300">Óptima • Actualizado hace 3 min</p>
-                    <div class="mt-6 h-2 bg-emerald-900 rounded-full overflow-hidden">
-                        <div class="h-full bg-emerald-400 w-3/4 rounded-full"></div>
-                    </div>
                 </div>
 
-                <!-- Sensor 2 -->
                 <div class="sensor-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-6">💧</div>
                     <h3 class="text-2xl font-semibold mb-2">Humedad del Aire</h3>
                     <div class="text-5xl font-bold text-sky-400 mb-2">68%</div>
                     <p class="text-emerald-300">Rango ideal para cultivo</p>
-                    <div class="mt-6 h-2 bg-emerald-900 rounded-full overflow-hidden">
-                        <div class="h-full bg-sky-400 w-2/3 rounded-full"></div>
-                    </div>
                 </div>
 
-                <!-- Sensor 3 -->
                 <div class="sensor-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-6">☀️</div>
                     <h3 class="text-2xl font-semibold mb-2">Clima Actual</h3>
                     <div class="text-5xl font-bold text-amber-400 mb-2">28°C</div>
                     <p class="text-emerald-300">Soleado • Viento: 8 km/h</p>
-                    <div class="mt-6 text-sm text-emerald-400">Próxima lluvia: 0%</div>
                 </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <button onclick="contactWhatsApp('Quiero más información sobre los sensores IoT de NeuroPlant')" 
-                        class="bg-white text-emerald-900 px-8 py-4 rounded-3xl font-semibold text-lg hover:bg-emerald-100 transition-all">
-                    Quiero implementar sensores en mi campo
-                </button>
             </div>
         </div>
     </section>
 
-    <!-- Ubicación con Mapa -->
+    <!-- Ubicación -->
     <section id="ubicacion" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
