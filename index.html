@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPlant - Agronomía Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --green: #166534;
+            --earth: #78350f;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(22, 101, 52, 0.75), rgba(22, 101, 52, 0.85)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        .leaf-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(134, 239, 172, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(134, 239, 172, 0.15) 0%, transparent 50%);
+        }
+
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #4ade80;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-emerald-50 text-emerald-950">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-emerald-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-30">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center gap-5">
+                    <img src="Diseños/photo_2026-07-02_23-28-26.jpg" width="80px" height="80px" alt="Logo" class="w-20 h-20">
+                    <div>
+                        <span class="heading-font text-3xl font-bold tracking-tight text-emerald-900">NeuroPlant</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-20 text-sm font-medium">
+                    <a href="#inicio" class="nav-link text-emerald-700 hover:text-emerald-800">Inicio</a>
+                    <a href="#productos" class="nav-link text-emerald-700 hover:text-emerald-800">Productos</a>
+                    <a href="#digitales" class="nav-link text-emerald-700 hover:text-emerald-800">Digitales</a>
+                    <a href="#cursos" class="nav-link text-emerald-700 hover:text-emerald-800">Cursos</a>
+                    <a href="#asesorias" class="nav-link text-emerald-700 hover:text-emerald-800">Asesorías</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/527222256180?text=Hola%20NeuroPlant,%20quiero%20más%20información" 
+                       target="_blank"
+                       class="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-2xl font-semibold transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="flex flex-col px-6 py-6 space-y-4 text-lg">
+                <a href="#inicio" class="py-2">Inicio</a>
+                <a href="#productos" class="py-2">Productos Físicos</a>
+                <a href="#digitales" class="py-2">Productos Digitales</a>
+                <a href="#cursos" class="py-2">Cursos</a>
+                <a href="#asesorias" class="py-2">Asesorías Privadas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero-bg text-white min-h-screen flex items-center">
+        <div class="max-w-5xl mx-auto px-10 py-24">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-4 bg-white/25 backdrop-blur-md px-10 py-5 rounded-full text-sm mb-10">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-350 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+                    </span>
+                    Agronomía del futuro
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    NeuroPlant:<br>
+                    <span class="text-emerald-200">Inteligencia para tus cultivos</span>
+                </h1>
+                
+                <p class="text-xl text-emerald-100 mb-10 max-w-lg">
+                    Productos premium, cursos especializados y asesorías personalizadas para maximizar el rendimiento de tus campos.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#productos" 
+                       class="bg-white text-emerald-800 hover:bg-emerald-100 px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-3 transition-all">
+                        Ver productos
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/527222256180?text=Hola,%20quiero%20hablar%20con%20un%20agronomo" 
+                       target="_blank"
+                       class="border-2 border-white/70 hover:border-white px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-3 transition-all">
+                        <i class="fab fa-whatsapp"></i>
+                        Consultar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1 flex flex-col items-center">
+            <div class="text-xs tracking-widest mb-1">SCROLL</div>
+            <i class="fas fa-chevron-down animate-bounce text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Productos Físicos -->
+    <section id="productos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">TIENDA FÍSICA</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Productos para tu campo</h2>
+                <p class="mt-4 text-lg text-emerald-700 max-w-md mx-auto">
+                    Insumos de alta calidad seleccionados por agrónomos expertos
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-emerald-100 flex items-center justify-center text-8xl">
+                        🧪
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Fertilizantes</span>
+                        <h3 class="text-2xl font-semibold mt-4">Bioestimulante NeuroRoot</h3>
+                        <p class="text-emerald-600 mt-2">Mejora el sistema radicular y absorción de nutrientes</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">$4.800</span>
+                                <span class="text-sm text-emerald-600">/litro</span>
+                            </div>
+                            <button onclick="contactWhatsApp('Quiero comprar Bioestimulante NeuroRoot')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i>
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-amber-100 flex items-center justify-center text-8xl">
+                        🌾
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Semillas</span>
+                        <h3 class="text-2xl font-semibold mt-4">Trigo Elite NeuroGen</h3>
+                        <p class="text-emerald-600 mt-2">Alta productividad y resistencia a estrés hídrico</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">$125.000</span>
+                                <span class="text-sm text-emerald-600">/bolsa 25kg</span>
+                            </div>
+                            <button onclick="contactWhatsApp('Quiero información del Trigo Elite NeuroGen')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i>
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white border border-emerald-100 rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-sky-100 flex items-center justify-center text-8xl">
+                        🛡️
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs bg-sky-100 text-sky-700 px-3 py-1 rounded-full">Fitosanitarios</span>
+                        <h3 class="text-2xl font-semibold mt-4">Fungicida Orgánico NeuroShield</h3>
+                        <p class="text-emerald-600 mt-2">Protección biológica contra hongos patógenos</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">$8.900</span>
+                                <span class="text-sm text-emerald-600">/litro</span>
+                            </div>
+                            <button onclick="contactWhatsApp('Quiero comprar NeuroShield')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl flex items-center gap-2 hover:bg-emerald-800">
+                                <i class="fab fa-whatsapp"></i>
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Digitales -->
+    <section id="digitales" class="py-24 bg-emerald-950 text-white leaf-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-400 font-semibold">BIBLIOTECA DIGITAL</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Recursos digitales</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div onclick="contactWhatsApp('Quiero comprar el PDF: Guía de Nutrición Vegetal Avanzada')" 
+                     class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                    <div class="text-5xl mb-6">📘</div>
+                    <h4 class="font-semibold text-xl">Guía de Nutrición Vegetal Avanzada</h4>
+                    <p class="text-emerald-300 text-sm mt-2">150 páginas • PDF interactivo</p>
+                    <div class="mt-8 text-3xl font-bold">$4.900</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el eBook: Manejo de Suelos en Secano')" 
+                     class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                    <div class="text-5xl mb-6">🌱</div>
+                    <h4 class="font-semibold text-xl">Manejo de Suelos en Secano</h4>
+                    <p class="text-emerald-300 text-sm mt-2">eBook + plantillas Excel</p>
+                    <div class="mt-8 text-3xl font-bold">$6.200</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el Pack: Modelos de Rotación de Cultivos')" 
+                     class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                    <div class="text-5xl mb-6">📊</div>
+                    <h4 class="font-semibold text-xl">Pack Modelos de Rotación</h4>
+                    <p class="text-emerald-300 text-sm mt-2">10 modelos + calculadoras</p>
+                    <div class="mt-8 text-3xl font-bold">$9.800</div>
+                </div>
+
+                <div onclick="contactWhatsApp('Quiero comprar el Curso grabado: Detección temprana de plagas')" 
+                     class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all group">
+                    <div class="text-5xl mb-6">🎥</div>
+                    <h4 class="font-semibold text-xl">Detección temprana de plagas</h4>
+                    <p class="text-emerald-300 text-sm mt-2">Video curso + certificación</p>
+                    <div class="mt-8 text-3xl font-bold">$12.500</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos -->
+    <section id="cursos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="heading-font text-5xl font-bold leading-tight">Formación profesional en agronomía</h2>
+                    <p class="mt-6 text-lg text-emerald-700">
+                        Cursos online y presenciales con los mejores especialistas del país.
+                    </p>
+                    
+                    <div class="mt-12 space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-4xl">🌾</div>
+                            <div>
+                                <button onclick="contactWhatsApp('Quiero inscribirme en el curso Manejo Integral de Cultivos Extensivos')" 
+                                        class="mt-4 text-emerald-700 font-medium flex items-center gap-2 hover:gap-3 transition-all">
+                                    Más info por WhatsApp →
+                                </button>
+                            </div>
+                        </div>
+                        
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-emerald-50 rounded-1sxl p-30">
+                    <div class="aspect-video bg-emerald-0 rounded-2xl flex items-center justify-center text-white text-5xl">
+                        ▶️
+                    </div>
+                    <div class="mt-3 text-center">
+                        <p class="font-medium">Próximo inicio: 15 de Julio 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asesorías Privadas -->
+    <section id="asesorias" class="py-24 bg-emerald-800 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="bg-white/20 text-white px-5 py-2 rounded-full text-sm">EXCLUSIVO</span>
+            <h2 class="heading-font text-5xl font-bold mt-6">Asesorías personalizadas</h2>
+            <p class="text-emerald-100 mt-6 text-xl">
+                Diagnóstico completo de tu establecimiento + plan de acción personalizado
+            </p>
+            
+            <div class="mt-12 bg-white/10 backdrop-blur-md rounded-3xl p-10">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">📍</div>
+                        <h4 class="font-semibold">Visita a campo</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">📊</div>
+                        <h4 class="font-semibold">Análisis de suelo y tejido</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">📈</div>
+                        <h4 class="font-semibold">Seguimiento mensual</h4>
+                    </div>
+                </div>
+                
+                <button onclick="contactWhatsApp('Quiero agendar una asesoría privada con NeuroPlant')" 
+                        class="mt-12 w-full bg-white text-emerald-800 py-6 text-xl font-semibold rounded-3xl hover:bg-emerald-100 transition-all">
+                    Reservar mi asesoría privada
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-24 bg-gradient-to-br from-emerald-700 to-emerald-900 text-white">
+        <div class="max-w-3xl mx-auto text-center px-6">
+            <h2 class="text-5xl heading-font font-bold">¿Listo para llevar tu producción al siguiente nivel?</h2>
+            <p class="mt-6 text-xl text-emerald-100">Hablemos por WhatsApp y armemos una estrategia personalizada.</p>
+            <a href="https://wa.me/527222256180?text=Hola%20NeuroPlant,%20quiero%20potenciar%20mi%20producción%20agrícola" 
+               target="_blank"
+               class="inline-flex items-center gap-4 mt-10 bg-white text-emerald-900 px-10 py-6 rounded-3xl text-2xl font-semibold hover:scale-105 transition-all">
+                <i class="fab fa-whatsapp text-4xl"></i>
+                <span>Hablar con un especialista ahora</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-emerald-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="Diseños/photo_2026-07-02_23-28-26.jpg" width="90px" height="90px" alt="Logo" class="w-15 h-15">
+                        <span class="heading-font text-3xl font-bold text-white">NeuroPlant</span>
+                    </div>
+                    <p class="max-w-xs">Ciencia aplicada al campo. Tecnología al servicio del productor.</p>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-12">
+                    <div>
+                        <h5 class="font-semibold text-white mb-4">Enlaces</h5>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="#" class="hover:text-white">Inicio</a></li>
+                            <li><a href="#" class="hover:text-white">Productos</a></li>
+                            <li><a href="#" class="hover:text-white">Cursos</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-white mb-4">Legal</h5>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
+                            <li><a href="#" class="hover:text-white">Términos de Servicio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-white mb-4">Contacto</h5>
+                        <a href="https://wa.me/527222256180" target="_blank" class="flex items-center gap-3 hover:text-white">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>+52 722 225-6180</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-emerald-900 mt-16 pt-8 text-center text-sm">
+                © 2026 NeuroPlant - Agronomía Inteligente. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        function contactWhatsApp(message) {
+            const phone = "527222256180"; // Reemplaza con tu número real
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Tailwind script already loaded via CDN
+    </script>
+</body>
+</html>
