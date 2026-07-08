@@ -10,7 +10,7 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -23,13 +23,8 @@
             --green: #166534;
         }
         
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Playfair Display', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', sans-serif; }
 
         .hero-bg {
             background: linear-gradient(rgba(22, 101, 52, 0.75), rgba(22, 101, 52, 0.85)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
@@ -41,19 +36,11 @@
                 radial-gradient(circle at 75% 75%, rgba(134, 239, 172, 0.15) 0%, transparent 50%);
         }
 
-        .product-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
         .product-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
-        .nav-link {
-            position: relative;
-        }
-        
         .nav-link:after {
             content: '';
             position: absolute;
@@ -64,14 +51,7 @@
             background-color: #4ade80;
             transition: width 0.3s ease;
         }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-
-        .testimonial-card:hover, .sensor-card:hover {
-            transform: translateY(-8px);
-        }
+        .nav-link:hover:after { width: 100%; }
 
         #map {
             height: 420px;
@@ -115,7 +95,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
             <div class="flex flex-col px-6 py-6 space-y-4 text-lg">
                 <a href="#inicio" class="py-2">Inicio</a>
@@ -405,8 +384,9 @@
                     </div>
                 </div>
 
-                <div>
-                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.5!2d-99.655!3d19.292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20b5f5f5f5f5f%3A0x1234567890abcdef!2sToluca%2C%20Estado%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1720000000000" 
+                <!-- Mapa OpenStreetMap (más estable) -->
+                <div class="rounded-3xl overflow-hidden shadow-xl">
+                    <iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-99.70%2C19.25%2C-99.60%2C19.35&layer=mapnik&marker=19.292%2C-99.655" 
                             width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
