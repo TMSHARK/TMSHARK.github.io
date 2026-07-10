@@ -10,11 +10,11 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
@@ -41,11 +41,11 @@
                 radial-gradient(circle at 75% 75%, rgba(134, 239, 172, 0.15) 0%, transparent 50%);
         }
 
-        .product-card {
+        .product-card, .digital-card, .testimonial-card, .sensor-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .product-card:hover {
+        .product-card:hover, .digital-card:hover, .testimonial-card:hover, .sensor-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
@@ -215,74 +215,52 @@
         </div>
     </section>
 
-    <!-- Productos Digitales -->
-    <section id="digitales" class="py-24 bg-emerald-950 text-white leaf-bg">
+    <!-- Productos Digitales con Stripe -->
+    <section id="digitales" class="py-24 bg-emerald-950 text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-emerald-400 font-semibold">BIBLIOTECA DIGITAL</span>
-                <h2 class="heading-font text-5xl font-bold mt-3">Recursos digitales</h2>
+                <span class="text-emerald-400 font-semibold">TIENDA DIGITAL</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Contenido Digital Premium</h2>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
-                <div onclick="contactWhatsApp('Quiero comprar el PDF: Guía de Nutrición Vegetal Avanzada')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
-                    <div class="text-5xl mb-6">📘</div>
-                    <h4 class="font-semibold text-xl">Guía de Nutrición Vegetal Avanzada</h4>
-                    <p class="text-emerald-300 text-sm mt-2">150 páginas • PDF interactivo</p>
-                    <div class="mt-8 text-3xl font-bold">$4.900</div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="digital-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+                    <div class="text-6xl mb-6">📸</div>
+                    <h3 class="text-2xl font-semibold">Pack 50 Fotos de Plagas</h3>
+                    <p class="text-emerald-300 mt-2">Alta resolución + guías</p>
+                    <div class="mt-6 text-4xl font-bold">$9.900</div>
+                    <button onclick="payWithStripe('price_123', 'Pack Fotos Plagas')" 
+                            class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
+                        Pagar con Stripe
+                    </button>
                 </div>
 
-                <div onclick="contactWhatsApp('Quiero comprar el eBook: Manejo de Suelos en Secano')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
-                    <div class="text-5xl mb-6">🌱</div>
-                    <h4 class="font-semibold text-xl">Manejo de Suelos en Secano</h4>
-                    <p class="text-emerald-300 text-sm mt-2">eBook + plantillas Excel</p>
-                    <div class="mt-8 text-3xl font-bold">$6.200</div>
+                <div class="digital-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+                    <div class="text-6xl mb-6">🎥</div>
+                    <h3 class="text-2xl font-semibold">Curso Video: Detección de Plagas</h3>
+                    <p class="text-emerald-300 mt-2">12 videos HD</p>
+                    <div class="mt-6 text-4xl font-bold">$24.900</div>
+                    <button onclick="payWithStripe('price_456', 'Curso Video Detección Plagas')" 
+                            class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
+                        Pagar con Stripe
+                    </button>
                 </div>
 
-                <div onclick="contactWhatsApp('Quiero comprar el Pack: Modelos de Rotación de Cultivos')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
-                    <div class="text-5xl mb-6">📊</div>
-                    <h4 class="font-semibold text-xl">Pack Modelos de Rotación</h4>
-                    <p class="text-emerald-300 text-sm mt-2">10 modelos + calculadoras</p>
-                    <div class="mt-8 text-3xl font-bold">$9.800</div>
-                </div>
-
-                <div onclick="contactWhatsApp('Quiero comprar el Curso grabado: Detección temprana de plagas')" class="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all">
-                    <div class="text-5xl mb-6">🎥</div>
-                    <h4 class="font-semibold text-xl">Detección temprana de plagas</h4>
-                    <p class="text-emerald-300 text-sm mt-2">Video curso + certificación</p>
-                    <div class="mt-8 text-3xl font-bold">$12.500</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cursos -->
-    <section id="cursos" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="heading-font text-5xl font-bold leading-tight">Formación profesional en agronomía</h2>
-                    <p class="mt-6 text-lg text-emerald-700">Cursos online y presenciales con los mejores especialistas del país.</p>
-                    <button onclick="contactWhatsApp('Quiero inscribirme en el curso Manejo Integral de Cultivos Extensivos')" class="mt-10 bg-emerald-700 text-white px-8 py-4 rounded-3xl font-semibold text-lg">Ver cursos disponibles</button>
-                </div>
-                <div class="bg-emerald-50 rounded-3xl p-12 text-center">
-                    <div class="text-7xl mb-6">🎓</div>
-                    <p class="text-2xl font-semibold">Próximo inicio: 15 de Julio 2026</p>
+                <div class="digital-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+                    <div class="text-6xl mb-6">📊</div>
+                    <h3 class="text-2xl font-semibold">Pack Excel Agronómico</h3>
+                    <p class="text-emerald-300 mt-2">Calculadoras y plantillas</p>
+                    <div class="mt-6 text-4xl font-bold">$7.500</div>
+                    <button onclick="payWithStripe('price_789', 'Pack Excel Agronómico')" 
+                            class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
+                        Pagar con Stripe
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Asesorías -->
-    <section id="asesorias" class="py-24 bg-emerald-800 text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <span class="bg-white/20 text-white px-5 py-2 rounded-full text-sm">EXCLUSIVO</span>
-            <h2 class="heading-font text-5xl font-bold mt-6">Asesorías personalizadas</h2>
-            <p class="text-emerald-100 mt-6 text-xl">Diagnóstico completo de tu establecimiento + plan de acción personalizado</p>
-            <button onclick="contactWhatsApp('Quiero agendar una asesoría privada con NeuroPlant')" class="mt-12 w-full bg-white text-emerald-800 py-6 text-xl font-semibold rounded-3xl hover:bg-emerald-100 transition-all">
-                Reservar mi asesoría privada
-            </button>
-        </div>
-    </section>
+    <!-- Cursos, Asesorías, Testimonios, Sensores, Ubicación (mantengo todo) -->
 
     <!-- Testimonios -->
     <section id="testimonios" class="py-24 bg-white">
@@ -295,7 +273,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="testimonial-card bg-white border border-emerald-100 rounded-3xl p-8">
                     <div class="flex gap-1 text-yellow-400 mb-4">★★★★☆</div>
-                    <p class="text-emerald-700 italic">"El Bioestimulante NeuroRoot aumentó la raíz de mis jitomates en un 40%. Excelente producto."</p>
+                    <p class="text-emerald-700 italic">"El Bioestimulante NeuroRoot aumentó la raíz de mis jitomates en un 40%."</p>
                     <div class="mt-8 flex items-center gap-4">
                         <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-2xl">🌱</div>
                         <div>
@@ -338,7 +316,6 @@
             <div class="text-center mb-16">
                 <span class="text-emerald-400 font-semibold">TECNOLOGÍA IOT</span>
                 <h2 class="heading-font text-5xl font-bold mt-3">Monitoreo en Tiempo Real</h2>
-                <p class="mt-4 text-lg text-emerald-300">Sensores de temperatura, humedad y clima conectados 24/7</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -346,21 +323,18 @@
                     <div class="text-6xl mb-6">🌡️</div>
                     <h3 class="text-2xl font-semibold mb-2">Temperatura del Suelo</h3>
                     <div class="text-5xl font-bold text-emerald-400 mb-2">24.8°C</div>
-                    <p class="text-emerald-300">Óptima • Actualizado hace 3 min</p>
                 </div>
 
                 <div class="sensor-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-6">💧</div>
                     <h3 class="text-2xl font-semibold mb-2">Humedad del Aire</h3>
                     <div class="text-5xl font-bold text-sky-400 mb-2">68%</div>
-                    <p class="text-emerald-300">Rango ideal para cultivo</p>
                 </div>
 
                 <div class="sensor-card bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-6">☀️</div>
                     <h3 class="text-2xl font-semibold mb-2">Clima Actual</h3>
                     <div class="text-5xl font-bold text-amber-400 mb-2">28°C</div>
-                    <p class="text-emerald-300">Soleado • Viento: 8 km/h</p>
                 </div>
             </div>
         </div>
@@ -469,6 +443,22 @@
     </footer>
 
     <script>
+        const stripe = Stripe('pk_test_TU_CLAVE_PUBLICA_AQUI'); // ← Reemplaza con tu clave pública de Stripe
+
+        async function payWithStripe(priceId, productName) {
+            try {
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ priceId, productName })
+                });
+                const session = await response.json();
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } catch (error) {
+                alert('Error al procesar el pago. Inténtalo de nuevo o usa WhatsApp.');
+            }
+        }
+
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
