@@ -229,7 +229,7 @@
                     <h3 class="text-2xl font-semibold">Pack 50 Fotos de Plagas</h3>
                     <p class="text-emerald-300 mt-2">Alta resolución + guías</p>
                     <div class="mt-6 text-4xl font-bold">$9.900</div>
-                    <button onclick="payWithStripe('price_123', 'Pack Fotos Plagas')" 
+                    <button onclick="payWithStripe('price_1', 'Pack Fotos Plagas')" 
                             class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
                         Pagar con Stripe
                     </button>
@@ -240,7 +240,7 @@
                     <h3 class="text-2xl font-semibold">Curso Video: Detección de Plagas</h3>
                     <p class="text-emerald-300 mt-2">12 videos HD</p>
                     <div class="mt-6 text-4xl font-bold">$24.900</div>
-                    <button onclick="payWithStripe('price_456', 'Curso Video Detección Plagas')" 
+                    <button onclick="payWithStripe('price_2', 'Curso Video Detección Plagas')" 
                             class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
                         Pagar con Stripe
                     </button>
@@ -251,7 +251,7 @@
                     <h3 class="text-2xl font-semibold">Pack Excel Agronómico</h3>
                     <p class="text-emerald-300 mt-2">Calculadoras y plantillas</p>
                     <div class="mt-6 text-4xl font-bold">$7.500</div>
-                    <button onclick="payWithStripe('price_789', 'Pack Excel Agronómico')" 
+                    <button onclick="payWithStripe('price_3', 'Pack Excel Agronómico')" 
                             class="mt-6 w-full bg-white text-emerald-900 py-4 rounded-2xl font-semibold hover:bg-emerald-100">
                         Pagar con Stripe
                     </button>
@@ -259,8 +259,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Cursos, Asesorías, Testimonios, Sensores, Ubicación (mantengo todo) -->
 
     <!-- Testimonios -->
     <section id="testimonios" class="py-24 bg-white">
@@ -443,7 +441,7 @@
     </footer>
 
     <script>
-        const stripe = Stripe('pk_test_51TrXSKCvQhuLFC7FXXJYL0HS2okpwo1I0KzGMX6T8fPSeItC0bZqGOPFxLg4WQrvlkKHEUlsNzyVc5X8gZsx9aJr00px7yj1jE'); // ← Reemplaza con tu clave pública de Stripe
+        const stripe = Stripe('pk_test_51TrXSKCvQhuLFC7FXXJYL0HS2okpwo1I0KzGMX6T8fPSeItC0bZqGOPFxLg4WQrvlkKHEUlsNzyVc5X8gZsx9aJr00px7yj1jE'); // Reemplaza con tu clave pública de Stripe
 
         async function payWithStripe(priceId, productName) {
             try {
